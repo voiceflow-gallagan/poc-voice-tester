@@ -1,0 +1,37 @@
+{
+  "name": "poc-voice-tester",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "@prisma/client": "^5.9.1",
+    "@tremor/react": "^3.14.0",
+    "axios": "^1.6.7",
+    "next": "14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.50.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.16",
+    "@types/react": "^18.2.52",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "prisma": "^6.3.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "keywords": ["voiceflow", "voice-agent", "voice-agent-tester", "voice-agent-tester-poc","twilio"],
+  "author": "Nicolas Arcay Bermejo | Voiceflow",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "Voiceflow POC for voice agent testing"
+}
