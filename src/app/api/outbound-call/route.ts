@@ -1,4 +1,9 @@
 import { NextResponse } from 'next/server';
+import prisma from '@/lib/db';
+
+type Config = {
+  numberId?: string;
+};
 
 export async function POST(request: Request) {
   try {
@@ -12,10 +17,23 @@ export async function POST(request: Request) {
       );
     }
 
+    // Get the current config to get the number ID
+    const config = await prisma.agentConfig.findFirst({
+      orderBy: { updatedAt: 'desc' },
+    }) as Config;
+
+    if (!config?.numberId) {
+      console.error('Number ID not found in configuration');
+      return NextResponse.json(
+        { error: 'Number ID not configured. Please set it up in settings.' },
+        { status: 400 }
+      );
+    }
+
     console.log('Making outbound call to Voiceflow API...', { phoneNumber });
 
     const response = await fetch(
-      'https://runtime-api.voiceflow.com/v1alpha1/phone-number/6762e9e1a01ce51cb9b4fb3a/outbound',
+      `https://runtime-api.voiceflow.com/v1alpha1/phone-number/${config.numberId}/outbound`,
       {
         method: 'POST',
         headers: {

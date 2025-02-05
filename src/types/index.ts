@@ -1,6 +1,7 @@
 export interface AgentConfig {
   apiKey: string;
   testAgentPhoneNumber: string;
+  numberId: string;
   updatedAt: Date;
 }
 

@@ -5,6 +5,7 @@ import { z } from 'zod';
 const configSchema = z.object({
   apiKey: z.string().min(1),
   testAgentPhoneNumber: z.string().min(1),
+  numberId: z.string().min(1),
 });
 
 export async function GET() {
